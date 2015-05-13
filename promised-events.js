@@ -120,7 +120,7 @@
      */
 
     QEventEmitter.prototype.emit = function(type) {
-      var args, defered, er, handler, i, len, listeners, results, success;
+      var args, defered, er, fail, handler, i, j, len, len1, listener, listeners, results, success;
       defered = Q.defer();
 
       /* @see EventEmitter::emit() code */
@@ -165,12 +165,18 @@
           }
         };
         i = 0;
-        while (i < len) {
+        for (j = 0, len1 = listeners.length; j < len1; j++) {
+          listener = listeners[j];
           args.shift();
-          args.unshift(listeners[i]);
+          args.unshift(listener);
+          fail = false;
           Q.fcall.apply(this, args).then(success, function(err) {
+            fail = true;
             return defered.reject(err);
           });
+          if (fail) {
+            break;
+          }
           i++;
         }
       }

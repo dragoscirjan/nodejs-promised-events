@@ -137,11 +137,17 @@ class QEventEmitter extends EventEmitter
         if results.length == listeners.length
           defered.resolve results
       i = 0
-      while i < len
+      # while i < len
+      for listener in listeners
         args.shift()
-        args.unshift(listeners[i])
+        # args.unshift(listeners[i])
+        args.unshift(listener)
+        fail = false
         Q.fcall.apply(@, args).then success, (err) ->
+          fail = true
           defered.reject err
+        if fail
+          break
         # listeners[i].apply this, args
         i++
     defered.promise
