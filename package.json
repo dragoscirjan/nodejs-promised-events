@@ -1,11 +1,11 @@
 {
   "name": "promised-events",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Promised Events",
   "main": "promised-events.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dragoscirjan/promised-events.git"
+    "url": "git://github.com/dragoscirjan/nodejs-promised-events.git"
   },
   "keywords": [
     "pomises",
@@ -15,11 +15,11 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/dragoscirjan/promised-events/blob/master/LICENSE"
+      "url": "https://github.com/dragoscirjan/nodejs-promised-events/blob/master/LICENSE"
     }
   ],
   "bugs": {
-    "url": "https://github.com/dragoscirjan/promised-events/issues"
+    "url": "https://github.com/dragoscirjan/nodejs-promised-events/issues"
   },
   "dependencies": {
     "events": "*",
